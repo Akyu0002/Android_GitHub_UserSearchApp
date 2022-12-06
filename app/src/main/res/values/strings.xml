@@ -28,10 +28,15 @@
     <string name="about_dev_website">https://www.tibetakyurekli.com</string>
 
     <!-- Detail View Strings-->
-    <string name="user_name">Name: %1$s</string>
-
-    <!-- Make strings for other information (TextView + String)-->
     <string name="placeholder_url">url</string>
+    <string name="user_name">Name: %1$s</string>
+    <string name="user_location">Location: %1$s</string>
+    <string name="user_company">Company: %1$s</string>
+    <string name="user_followers">Followers: %1$s</string>
+    <string name="user_public_gist">Public Gists: %1$s</string>
+    <string name="user_public_repos">Public Repos: %1$s</string>
+    <string name="user_last_update">Last Updated: %1$s</string>
+    <string name="user_account_created">Account Created: %1$s</string>
 
     <!-- Key Values Do Not Translate -->
     <string name="user_data_key">USER_DATA</string>
