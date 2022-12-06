@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Tibets Amazing Final</string>
+
+    <!--String Resources Given by Tony-->
+    <string name="search_button_text">Search</string>
+    <string name="search_user_hint">Search user</string>
+    <string name="min_repos">min. # repos</string>
+    <string name="followers">followers</string>
+    <string name="page_size">page size</string>
+    <string name="min_followers">min. # followers</string>
+    <string name="repos">repos</string>
+
+    <!-- Menu Strings-->
+    <string name="menu_about">About</string>
+
+    <!-- Recycler View List Strings -->
+    <string name="user_score">Score: %1$s</string>
+    <string name="user_login">Login: %1$s</string>
+    <string name="user_id">ID: %1$s</string>
+    <string name="image_description">Avatar</string>
+
+    <!-- About View Strings-->
+    <string name="about_image_description">Tibets Profile Picture</string>
+    <string name="about_app_name_version">GitHub Search v1.0.0</string>
+    <string name="about_dev_name">Created by Tibet Akyurekli</string>
+    <string name="about_company_name">MADD 2022</string>
+    <string name="about_dev_email">akyu0002@algonquinlive.com</string>
+    <string name="about_dev_website">https://www.tibetakyurekli.com</string>
+
+    <!-- Key Values Do Not Translate -->
+    <string name="user_data_key">USER_DATA</string>
+    <string name="url_key">URL_KEY</string>
+    <string name="details_title_key">ACTIONBAR_TITLE</string>
+    <string name="details_url_key">DETAILS_URL</string>
+    <string name="details_html_url_key">DETAILS_HTML_URL</string>
+
+</resources>
