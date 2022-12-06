@@ -27,6 +27,12 @@
     <string name="about_dev_email">akyu0002@algonquinlive.com</string>
     <string name="about_dev_website">https://www.tibetakyurekli.com</string>
 
+    <!-- Detail View Strings-->
+    <string name="user_name">Name: %1$s</string>
+
+    <!-- Make strings for other information (TextView + String)-->
+    <string name="placeholder_url">url</string>
+
     <!-- Key Values Do Not Translate -->
     <string name="user_data_key">USER_DATA</string>
     <string name="url_key">URL_KEY</string>
