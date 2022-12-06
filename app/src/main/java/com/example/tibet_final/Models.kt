@@ -1,16 +1,15 @@
 package com.example.tibet_final
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Query
-
 //*****************************
 //****** Tibet Akyurekli ******
 //***** November 15h 2022 *****
 //*****************************
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 // region Returned JSON from one user
 //link: https://api.github.com/search/users?q=android
@@ -46,7 +45,6 @@ import retrofit2.http.Query
 
 // endregion
 
-
 // region REST API Interface
 
 interface ResApi {
@@ -57,15 +55,17 @@ interface ResApi {
 
 // endregion
 
-
 @Parcelize
+//region Response Data Class
 data class ResponseDataClass(
     val incomplete_results: Boolean = false,
     val items: ArrayList<Users>,
     val total_count: Int = 0
 ) : Parcelable
+//endregion
 
 @Parcelize
+//region Users Data Class
 data class Users(
     val avatar_url: String = "",
     val events_url: String = "",
@@ -87,7 +87,9 @@ data class Users(
     val type: String = "",
     val url: String = ""
 )  : Parcelable
+//endregion
 
+//region User Details Data Class
 data class UserDetails(
     val avatar_url: String? = "",
     val bio: String? = "",
@@ -122,3 +124,4 @@ data class UserDetails(
     val updated_at: String? = "",
     val url: String? = ""
 )
+//endregion

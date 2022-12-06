@@ -1,5 +1,11 @@
 package com.example.tibet_final
 
+//*****************************
+//****** Tibet Akyurekli ******
+//***** December 6th 2022 *****
+//*****************************
+
+
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

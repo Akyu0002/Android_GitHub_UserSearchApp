@@ -13,8 +13,11 @@ import com.example.tibet_final.databinding.ActivityResultsBinding
 
 class ResultsActivity : AppCompatActivity() {
 
+    //region Properties
     private lateinit var binding: ActivityResultsBinding
+    //endregion
 
+    //region onCreate Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultsBinding.inflate(layoutInflater)
@@ -38,4 +41,5 @@ class ResultsActivity : AppCompatActivity() {
             CustomViewHolderClass.MainAdapter(it)
         }
     }
+    //endregion
 }
