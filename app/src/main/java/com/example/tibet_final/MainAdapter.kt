@@ -43,16 +43,18 @@ class CustomViewHolderClass(private val view: View, var login: String = "", var 
     }
 
     init {
-       view.setOnClickListener{
-           val intent = Intent(view.context, DetailsActivity::class.java)
+        view.setOnClickListener() {
+            val intent = Intent(view.context, DetailsActivity::class.java)
 
-           intent.putExtra(view.context.getString(R.string.details_title_key), login)
-           intent.putExtra(view.context.getString(R.string.url_key), user?.url)
-           intent.putExtra(view.context.getString(R.string.details_html_url_key), user?.html_url)
+            intent.putExtra(view.context.getString(R.string.details_title_key), login)
+            intent.putExtra(view.context.getString(R.string.details_url_key), user?.url)
+            intent.putExtra(view.context.getString(R.string.details_html_url_key), user?.html_url)
 
-           view.context.startActivity(intent)
-
-       }
+            view.context.startActivity(intent)
+        }
     }
+
+
+
     }
 

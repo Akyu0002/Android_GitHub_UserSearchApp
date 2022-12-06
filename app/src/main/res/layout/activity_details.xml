@@ -47,5 +47,4 @@
         app:layout_constraintTop_toBottomOf="@+id/htmlURLTextView"
         app:layout_constraintVertical_bias="0.015" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
