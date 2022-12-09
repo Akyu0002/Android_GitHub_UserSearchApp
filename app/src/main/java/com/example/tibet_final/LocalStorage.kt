@@ -18,7 +18,7 @@ import android.content.SharedPreferences
  *
 */
 
-
+@Suppress("UNUSED")
 class LocalStorage (context: Context = TheApp.context) {
 
     // region Properties
@@ -53,6 +53,7 @@ class LocalStorage (context: Context = TheApp.context) {
     // endregion
 
     // region Set methods
+    @Suppress("UNUSED")
     fun save(KEY_NAME: String, text: String) {
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         editor.putString(KEY_NAME, text)
@@ -96,6 +97,7 @@ class LocalStorage (context: Context = TheApp.context) {
     // endregion
 
     // region Get methods
+    @Suppress("UNUSED")
     fun getValueString(KEY_NAME: String): String? {
         return sharedPreferences.getString(KEY_NAME, null)
     }

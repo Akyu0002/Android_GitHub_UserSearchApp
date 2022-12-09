@@ -9,12 +9,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
+import android.text.TextWatcher
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.tibet_final.databinding.ActivityMainBinding
@@ -29,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     // region Properties
     private lateinit var binding: ActivityMainBinding
 
+    @Suppress("Unused")
     private var searchString = ""
 
     private val minPage = 1
@@ -54,8 +53,41 @@ class MainActivity : AppCompatActivity() {
         binding.perPageNumberPicker.minValue = minPage
         binding.perPageNumberPicker.maxValue = maxPage
         binding.perPageNumberPicker.value = startPage
-    }
 
+        // ChangeText Listener
+        binding.searchUser.addTextChangedListener( object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                binding.searchButton.isEnabled = true
+                binding.noResultsMessage.text = ""
+            }
+
+        })
+
+
+
+        //region Keyboard - Support Return Key Press
+        binding.searchUser.setOnKeyListener(View.OnKeyListener { _, keyCode, event->
+            if(keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                // Custom Code
+                if(binding.searchButton.isEnabled) {
+                    fetchJSONData()
+                }
+
+                return@OnKeyListener true
+            }
+            false
+        })
+        //endregion
+    }
+    // endregion
+
+    //region fetchJSONData Method
     private fun fetchJSONData() {
         //Retrofit Object
         val retrofit = Retrofit.Builder()
@@ -102,7 +134,8 @@ class MainActivity : AppCompatActivity() {
                     intent.putParcelableArrayListExtra(getString(R.string.user_data_key), users)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(TheApp.context, "No users found!", Toast.LENGTH_SHORT).show()
+                    binding.searchButton.isEnabled = false
+                    binding.noResultsMessage.text = getString(R.string.no_results, binding.searchUser.text)
                 }
 
 
@@ -116,7 +149,7 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
-    // endregion
+    //endregion
 
     // region Options Menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

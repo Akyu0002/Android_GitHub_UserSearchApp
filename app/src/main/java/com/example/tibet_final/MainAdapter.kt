@@ -48,7 +48,7 @@ class CustomViewHolderClass(private val view: View, var login: String = "", var 
 
     //region init
     init {
-        view.setOnClickListener() {
+        view.setOnClickListener {
             val intent = Intent(view.context, DetailsActivity::class.java)
 
             intent.putExtra(view.context.getString(R.string.details_title_key), login)

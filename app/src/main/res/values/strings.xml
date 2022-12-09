@@ -27,6 +27,9 @@
     <string name="about_dev_email">akyu0002@algonquinlive.com</string>
     <string name="about_dev_website">https://www.tibetakyurekli.com</string>
 
+    <!-- Error Strings -->
+    <string name="no_results">No results for: %1$s</string>
+
     <!-- Detail View Strings-->
     <string name="placeholder_url">url</string>
     <string name="user_name">Name: %1$s</string>

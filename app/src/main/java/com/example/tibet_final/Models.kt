@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
-
+@Suppress("SpellCheckingInspection")
 // region Returned JSON from one user
 //link: https://api.github.com/search/users?q=android
 
@@ -90,6 +90,7 @@ data class Users(
 //endregion
 
 //region User Details Data Class
+@Suppress("SpellCheckingInspection")
 data class UserDetails(
     val avatar_url: String? = "",
     val bio: String? = "",
