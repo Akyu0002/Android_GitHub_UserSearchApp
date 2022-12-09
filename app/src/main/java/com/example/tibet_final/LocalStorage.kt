@@ -18,7 +18,6 @@ import android.content.SharedPreferences
  *
 */
 
-@Suppress("UNUSED")
 class LocalStorage (context: Context = TheApp.context) {
 
     // region Properties
@@ -97,14 +96,12 @@ class LocalStorage (context: Context = TheApp.context) {
     // endregion
 
     // region Get methods
-    @Suppress("UNUSED")
     fun getValueString(KEY_NAME: String): String? {
         return sharedPreferences.getString(KEY_NAME, null)
     }
 
-    @Suppress("UNUSED")
-    fun getValueInt(KEY_NAME: String, value: Int): Int {
-        return sharedPreferences.getInt(KEY_NAME, value)
+    fun getValueInt(KEY_NAME: String ): Int {
+        return sharedPreferences.getInt(KEY_NAME, 0)
     }
 
     @Suppress("UNUSED")
@@ -126,6 +123,7 @@ class LocalStorage (context: Context = TheApp.context) {
     fun getValueStringSet(KEY_NAME: String, value: Set<String>): Set<String>? {
         return sharedPreferences.getStringSet(KEY_NAME, value)
     }
+
     // endregion
 
 }

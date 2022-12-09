@@ -33,12 +33,14 @@ class MainActivity : AppCompatActivity() {
     private val minPage = 1
     private val maxPage = 100
     private val startPage = 30
+    private val localStorage = LocalStorage()
 
     private val baseUrl = "https://api.github.com/search/"
     // endregion
 
     // region onCreate Method
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -53,6 +55,27 @@ class MainActivity : AppCompatActivity() {
         binding.perPageNumberPicker.minValue = minPage
         binding.perPageNumberPicker.maxValue = maxPage
         binding.perPageNumberPicker.value = startPage
+
+        //region Get search params from localStorage
+        if(localStorage.contains(getString(R.string.repos_key))) {
+            binding.minReposEditText.setText(localStorage.getValueString(getString(R.string.repos_key)))
+            print(getString(R.string.repos_key))
+        } else {
+            binding.minReposEditText.setText("0")
+        }
+
+        if(localStorage.contains(getString(R.string.followers_key))) {
+            binding.minFollowersEditText.setText(localStorage.getValueString(getString(R.string.followers_key)))
+        } else {
+            binding.minFollowersEditText.setText("0")
+        }
+
+        if(localStorage.contains(getString(R.string.page_size_key))) {
+            binding.perPageNumberPicker.value = localStorage.getValueInt(getString(R.string.page_size_key))
+        } else {
+            binding.perPageNumberPicker.value = 0
+        }
+        //endregion
 
         // ChangeText Listener
         binding.searchUser.addTextChangedListener( object: TextWatcher {
@@ -86,6 +109,15 @@ class MainActivity : AppCompatActivity() {
         //endregion
     }
     // endregion
+
+    //region onStop Method
+    override fun onStop() {
+        super.onStop()
+        localStorage.save(getString(R.string.repos_key), binding.minReposEditText.text.toString())
+        localStorage.save(getString(R.string.followers_key), binding.minFollowersEditText.text.toString())
+        localStorage.save(getString(R.string.page_size_key), binding.perPageNumberPicker.value.toString().toInt())
+    }
+    //endregion
 
     //region fetchJSONData Method
     private fun fetchJSONData() {
@@ -145,8 +177,6 @@ class MainActivity : AppCompatActivity() {
                 toast(t.message.toString())
                 binding.progressBar.visibility = View.GONE
             }
-
-
         })
     }
     //endregion
