@@ -4,7 +4,10 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 
-// Created by Tibet Akyurekli October 18 2022
+//*****************************
+//****** Tibet Akyurekli ******
+//***** December 9th 2022 *****
+//*****************************
 
 class InternetConnection (private val context: Context){
 

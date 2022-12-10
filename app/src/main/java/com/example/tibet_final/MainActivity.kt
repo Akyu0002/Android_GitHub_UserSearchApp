@@ -2,7 +2,7 @@ package com.example.tibet_final
 
 //*****************************
 //****** Tibet Akyurekli ******
-//***** November 15h 2022 *****
+//***** November 15th 2022 ****
 //*****************************
 
 import android.content.Context
