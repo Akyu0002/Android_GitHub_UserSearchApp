@@ -19,6 +19,11 @@
     <string name="user_id">ID: %1$s</string>
     <string name="image_description">Avatar</string>
 
+    <!-- InternetConnection Strings-->
+    <string name="message_title">Network Error</string>
+    <string name="message_text">No internet connection available.</string>
+    <string name="quit">Quit</string>
+
     <!-- About View Strings-->
     <string name="about_image_description">Tibets Profile Picture</string>
     <string name="about_app_name_version">GitHub Search v1.0.0</string>

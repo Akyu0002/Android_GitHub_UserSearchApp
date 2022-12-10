@@ -15,6 +15,7 @@ import android.text.TextWatcher
 import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.tibet_final.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,7 +34,9 @@ class MainActivity : AppCompatActivity() {
     private val minPage = 1
     private val maxPage = 100
     private val startPage = 30
+
     private val localStorage = LocalStorage()
+    private val internetConnection = InternetConnection(this)
 
     private val baseUrl = "https://api.github.com/search/"
     // endregion
@@ -43,6 +46,18 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        // Check if theres an internet connection
+        if(!internetConnection.isConnected) {
+            AlertDialog.Builder(this)
+                .setTitle(R.string.message_title)
+                .setMessage(R.string.message_text)
+                .setIcon(R.drawable.ic_baseline_network_check_24)
+                .setNegativeButton(R.string.quit){ _, _ ->
+                    finish()
+                }
+                .setCancelable(false)
+                .show()
+        } else {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -93,7 +108,6 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-
         //region Keyboard - Support Return Key Press
         binding.searchUser.setOnKeyListener(View.OnKeyListener { _, keyCode, event->
             if(keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
@@ -107,6 +121,7 @@ class MainActivity : AppCompatActivity() {
             false
         })
         //endregion
+        }
     }
     // endregion
 
